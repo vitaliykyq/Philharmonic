@@ -3,14 +3,14 @@ package edu.coursework.philharmonic.service.impresario.impls;
 /*
     @author:    Bogdan
     @project:    Enterprises 
-    @class:    CivilServiceImpl 
+    @class:    ImpresarioServiceImpl
     @version:    1.0.0 
     @since:    15.04.2021     
 */
 
-import edu.coursework.enterprises.model.Helicopter;
-import edu.coursework.enterprises.repository.HelicopterRepository;
-import edu.coursework.enterprises.service.helicopter.interfaces.IHelicopterService;
+import edu.coursework.philharmonic.model.Impresario;
+import edu.coursework.philharmonic.repository.ImpresarioRepository;
+import edu.coursework.philharmonic.service.impresario.interfaces.IImpresarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,37 +18,37 @@ import java.util.Date;
 import java.util.List;
 
 @Service
-public class ImpresarioServiceImpl implements IHelicopterService {
+public class ImpresarioServiceImpl implements IImpresarioService {
 
     @Autowired
-    HelicopterRepository repository;
+    ImpresarioRepository repository;
 
     @Override
-    public Helicopter getById(String id) {
+    public Impresario getById(String id) {
 
         return repository.findById(id).orElse(null);
     }
 
     @Override
-    public Helicopter create(Helicopter helicopter) {
-        helicopter.setCreated_at(new Date());
-        return repository.save(helicopter);
+    public Impresario create(Impresario impresario) {
+        impresario.setCreatedAt(new Date());
+        return repository.save(impresario);
     }
 
     @Override
-    public Helicopter update(Helicopter helicopter) {
-        helicopter.setModified_at(new Date());
-        return repository.save(helicopter);
+    public Impresario update(Impresario impresario) {
+        impresario.setModifiedAt(new Date());
+        return repository.save(impresario);
     }
 
     @Override
-    public Helicopter delete(String id) {
+    public Impresario delete(String id) {
         repository.deleteById(id);
         return null;
     }
 
     @Override
-    public List<Helicopter> getAll() {
+    public List<Impresario> getAll() {
 
         return repository.findAll();
     }

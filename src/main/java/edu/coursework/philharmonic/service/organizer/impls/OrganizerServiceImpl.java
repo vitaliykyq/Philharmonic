@@ -3,14 +3,14 @@ package edu.coursework.philharmonic.service.organizer.impls;
 /*
     @author:    Bogdan
     @project:    Enterprises 
-    @class:    CivilServiceImpl 
+    @class:    OrganizerServiceImpl
     @version:    1.0.0 
     @since:    15.04.2021     
 */
 
-import edu.coursework.enterprises.model.Laboratory;
-import edu.coursework.enterprises.repository.LaboratoryRepository;
-import edu.coursework.enterprises.service.laboratory.interfaces.ILaboratoryService;
+import edu.coursework.philharmonic.model.Organizer;
+import edu.coursework.philharmonic.repository.OrganizerRepository;
+import edu.coursework.philharmonic.service.organizer.interfaces.IOrganizerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,37 +18,37 @@ import java.util.Date;
 import java.util.List;
 
 @Service
-public class OrganizerServiceImpl implements ILaboratoryService {
+public class OrganizerServiceImpl implements IOrganizerService {
 
     @Autowired
-    LaboratoryRepository repository;
+    OrganizerRepository repository;
 
     @Override
-    public Laboratory getById(String id) {
+    public Organizer getById(String id) {
 
         return repository.findById(id).orElse(null);
     }
 
     @Override
-    public Laboratory create(Laboratory laboratory) {
-        laboratory.setCreated_at(new Date());
-        return repository.save(laboratory);
+    public Organizer create(Organizer organizer) {
+        organizer.setCreatedAt(new Date());
+        return repository.save(organizer);
     }
 
     @Override
-    public Laboratory update(Laboratory laboratory) {
-        laboratory.setModified_at(new Date());
-        return repository.save(laboratory);
+    public Organizer update(Organizer organizer) {
+        organizer.setModifiedAt(new Date());
+        return repository.save(organizer);
     }
 
     @Override
-    public Laboratory delete(String id) {
+    public Organizer delete(String id) {
         repository.deleteById(id);
         return null;
     }
 
     @Override
-    public List<Laboratory> getAll() {
+    public List<Organizer> getAll() {
 
         return repository.findAll();
     }

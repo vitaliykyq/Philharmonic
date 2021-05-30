@@ -8,9 +8,9 @@ package edu.coursework.philharmonic.service.artist.impls;
     @since:    15.04.2021     
 */
 
-import edu.coursework.enterprises.model.Brigade;
-import edu.coursework.enterprises.repository.BrigadeRepository;
-import edu.coursework.enterprises.service.brigade.interfaces.IBrigadeService;
+import edu.coursework.philharmonic.model.Artist;
+import edu.coursework.philharmonic.repository.ArtistRepository;
+import edu.coursework.philharmonic.service.artist.interfaces.IArtistService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,37 +18,37 @@ import java.util.Date;
 import java.util.List;
 
 @Service
-public class ArtistServiceImpl implements IBrigadeService {
+public class ArtistServiceImpl implements IArtistService {
 
     @Autowired
-    BrigadeRepository repository;
+    ArtistRepository repository;
 
     @Override
-    public Brigade getById(String id) {
+    public Artist getById(String id) {
 
         return repository.findById(id).orElse(null);
     }
 
     @Override
-    public Brigade create(Brigade brigade) {
-        brigade.setCreated_at(new Date());
-        return repository.save(brigade);
+    public Artist create(Artist artist) {
+        artist.setCreatedAt(new Date());
+        return repository.save(artist);
     }
 
     @Override
-    public Brigade update(Brigade brigade) {
-        brigade.setModified_at(new Date());
-        return repository.save(brigade);
+    public Artist update(Artist artist) {
+        artist.setModifiedAt(new Date());
+        return repository.save(artist);
     }
 
     @Override
-    public Brigade delete(String id) {
+    public Artist delete(String id) {
         repository.deleteById(id);
         return null;
     }
 
     @Override
-    public List<Brigade> getAll() {
+    public List<Artist> getAll() {
 
         return repository.findAll();
     }

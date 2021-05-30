@@ -3,20 +3,20 @@ package edu.coursework.philharmonic.service.rewarding.interfaces;
 /*
     @author:    Bogdan
     @project:    Enterprises 
-    @class:    ICivilService 
+    @class:    IRewardingService
     @version:    1.0.0 
     @since:    15.04.2021     
 */
 
-import edu.coursework.enterprises.model.Military;
+import edu.coursework.philharmonic.model.Rewarding;
 
 import java.util.List;
 
 public interface IRewardingService {
 
-    Military getById(String id);
-    Military create(Military military);
-    Military update(Military military);
-    Military delete(String id);
-    List<Military> getAll();
+    Rewarding getById(String id);
+    Rewarding create(Rewarding rewarding);
+    Rewarding update(Rewarding rewarding);
+    Rewarding delete(String id);
+    List<Rewarding> getAll();
 }

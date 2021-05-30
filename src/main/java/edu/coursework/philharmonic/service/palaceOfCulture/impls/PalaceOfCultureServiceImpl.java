@@ -3,14 +3,14 @@ package edu.coursework.philharmonic.service.palaceOfCulture.impls;
 /*
     @author:    Bogdan
     @project:    Enterprises 
-    @class:    CivilServiceImpl 
+    @class:    PalaceOfCultureServiceImpl
     @version:    1.0.0 
     @since:    15.04.2021     
 */
 
-import edu.coursework.enterprises.model.Glider;
-import edu.coursework.enterprises.repository.GliderRepository;
-import edu.coursework.enterprises.service.glider.interfaces.IGliderService;
+import edu.coursework.philharmonic.model.PalaceOfCulture;
+import edu.coursework.philharmonic.repository.PalaceOfCultureRepository;
+import edu.coursework.philharmonic.service.palaceOfCulture.interfaces.IPalaceOfCultureService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,37 +18,37 @@ import java.util.Date;
 import java.util.List;
 
 @Service
-public class PalaceOfCultureServiceImpl implements IGliderService {
+public class PalaceOfCultureServiceImpl implements IPalaceOfCultureService {
 
     @Autowired
-    GliderRepository repository;
+    PalaceOfCultureRepository repository;
 
     @Override
-    public Glider getById(String id) {
+    public PalaceOfCulture getById(String id) {
 
         return repository.findById(id).orElse(null);
     }
 
     @Override
-    public Glider create(Glider glider) {
-        glider.setCreated_at(new Date());
-        return repository.save(glider);
+    public PalaceOfCulture create(PalaceOfCulture palaceOfCulture) {
+        palaceOfCulture.setCreatedAt(new Date());
+        return repository.save(palaceOfCulture);
     }
 
     @Override
-    public Glider update(Glider glider) {
-        glider.setModified_at(new Date());
-        return repository.save(glider);
+    public PalaceOfCulture update(PalaceOfCulture palaceOfCulture) {
+        palaceOfCulture.setModifiedAt(new Date());
+        return repository.save(palaceOfCulture);
     }
 
     @Override
-    public Glider delete(String id) {
+    public PalaceOfCulture delete(String id) {
         repository.deleteById(id);
         return null;
     }
 
     @Override
-    public List<Glider> getAll() {
+    public List<PalaceOfCulture> getAll() {
 
         return repository.findAll();
     }

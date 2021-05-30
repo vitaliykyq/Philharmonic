@@ -8,9 +8,9 @@ package edu.coursework.philharmonic.service.accounting.impls;
     @since:    15.04.2021     
 */
 
-import edu.coursework.enterprises.model.Accounting;
-import edu.coursework.enterprises.repository.AccountingRepository;
-import edu.coursework.enterprises.service.accounting.interfaces.IAccountingService;
+import edu.coursework.philharmonic.model.Accounting;
+import edu.coursework.philharmonic.repository.AccountingRepository;
+import edu.coursework.philharmonic.service.accounting.interfaces.IAccountingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,13 +31,13 @@ public class AccountingServiceImpl implements IAccountingService {
 
     @Override
     public Accounting create(Accounting accounting) {
-        accounting.setCreated_at(new Date());
+        accounting.setCreatedAt(new Date());
         return repository.save(accounting);
     }
 
     @Override
     public Accounting update(Accounting accounting) {
-        accounting.setModified_at(new Date());
+        accounting.setModifiedAt(new Date());
         return repository.save(accounting);
     }
 

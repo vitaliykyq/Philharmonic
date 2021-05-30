@@ -3,20 +3,20 @@ package edu.coursework.philharmonic.service.tribune.interfaces;
 /*
     @author:    Bogdan
     @project:    Enterprises 
-    @class:    ICivilService 
+    @class:    ITribuneService
     @version:    1.0.0 
     @since:    15.04.2021     
 */
 
-import edu.coursework.enterprises.model.Equipment;
+import edu.coursework.philharmonic.model.Tribune;
 
 import java.util.List;
 
 public interface ITribuneService {
 
-    Equipment getById(String id);
-    Equipment create(Equipment equipment);
-    Equipment update(Equipment equipment);
-    Equipment delete(String id);
-    List<Equipment> getAll();
+    Tribune getById(String id);
+    Tribune create(Tribune tribune);
+    Tribune update(Tribune tribune);
+    Tribune delete(String id);
+    List<Tribune> getAll();
 }

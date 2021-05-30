@@ -3,13 +3,13 @@ package edu.coursework.philharmonic.repository;
 /*
     @author:    Bogdan
     @project:    Enterprises 
-    @class:    GliderRepository
+    @class:    PalaceOfCultureRepository
     @version:    1.0.0 
     @since:    21.05.2021     
 */
 
-import edu.coursework.enterprises.model.Glider;
+import edu.coursework.philharmonic.model.PalaceOfCulture;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-public interface GliderRepository extends MongoRepository<Glider, String> {
+public interface PalaceOfCultureRepository extends MongoRepository<PalaceOfCulture, String> {
 }

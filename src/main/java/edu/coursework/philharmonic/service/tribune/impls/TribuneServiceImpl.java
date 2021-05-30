@@ -3,14 +3,14 @@ package edu.coursework.philharmonic.service.tribune.impls;
 /*
     @author:    Bogdan
     @project:    Enterprises 
-    @class:    CivilServiceImpl 
+    @class:    TribuneServiceImpl
     @version:    1.0.0 
     @since:    15.04.2021     
 */
 
-import edu.coursework.enterprises.model.Equipment;
-import edu.coursework.enterprises.repository.EquipmentRepository;
-import edu.coursework.enterprises.service.equipment.interfaces.IEquipmentService;
+import edu.coursework.philharmonic.model.Tribune;
+import edu.coursework.philharmonic.repository.TribuneRepository;
+import edu.coursework.philharmonic.service.tribune.interfaces.ITribuneService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,37 +18,37 @@ import java.util.Date;
 import java.util.List;
 
 @Service
-public class TribuneServiceImpl implements IEquipmentService {
+public class TribuneServiceImpl implements ITribuneService {
 
     @Autowired
-    EquipmentRepository repository;
+    TribuneRepository repository;
 
     @Override
-    public Equipment getById(String id) {
+    public Tribune getById(String id) {
 
         return repository.findById(id).orElse(null);
     }
 
     @Override
-    public Equipment create(Equipment equipment) {
-        equipment.setCreated_at(new Date());
-        return repository.save(equipment);
+    public Tribune create(Tribune tribune) {
+        tribune.setCreatedAt(new Date());
+        return repository.save(tribune);
     }
 
     @Override
-    public Equipment update(Equipment equipment) {
-        equipment.setModified_at(new Date());
-        return repository.save(equipment);
+    public Tribune update(Tribune tribune) {
+        tribune.setModifiedAt(new Date());
+        return repository.save(tribune);
     }
 
     @Override
-    public Equipment delete(String id) {
+    public Tribune delete(String id) {
         repository.deleteById(id);
         return null;
     }
 
     @Override
-    public List<Equipment> getAll() {
+    public List<Tribune> getAll() {
 
         return repository.findAll();
     }

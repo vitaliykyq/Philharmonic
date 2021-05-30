@@ -3,20 +3,20 @@ package edu.coursework.philharmonic.service.palaceOfCulture.interfaces;
 /*
     @author:    Bogdan
     @project:    Enterprises 
-    @class:    ICivilService 
+    @class:    IPalaceOfCultureService
     @version:    1.0.0 
     @since:    15.04.2021     
 */
 
-import edu.coursework.enterprises.model.Glider;
+import edu.coursework.philharmonic.model.PalaceOfCulture;
 
 import java.util.List;
 
 public interface IPalaceOfCultureService {
 
-    Glider getById(String id);
-    Glider create(Glider glider);
-    Glider update(Glider glider);
-    Glider delete(String id);
-    List<Glider> getAll();
+    PalaceOfCulture getById(String id);
+    PalaceOfCulture create(PalaceOfCulture palaceOfCulture);
+    PalaceOfCulture update(PalaceOfCulture palaceOfCulture);
+    PalaceOfCulture delete(String id);
+    List<PalaceOfCulture> getAll();
 }

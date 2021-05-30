@@ -3,20 +3,20 @@ package edu.coursework.philharmonic.service.competition.interfaces;
 /*
     @author:    Bogdan
     @project:    Enterprises 
-    @class:    ICivilService 
+    @class:    ICompetitionService
     @version:    1.0.0 
     @since:    15.04.2021     
 */
 
-import edu.coursework.enterprises.model.Missile;
+import edu.coursework.philharmonic.model.Competition;
 
 import java.util.List;
 
 public interface ICompetitionService {
 
-    Missile getById(String id);
-    Missile create(Missile missile);
-    Missile update(Missile missile);
-    Missile delete(String id);
-    List<Missile> getAll();
+    Competition getById(String id);
+    Competition create(Competition competition);
+    Competition update(Competition competition);
+    Competition delete(String id);
+    List<Competition> getAll();
 }

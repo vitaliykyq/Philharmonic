@@ -8,9 +8,9 @@ package edu.coursework.philharmonic.service.concertVenue.impls;
     @since:    15.04.2021     
 */
 
-import edu.coursework.enterprises.model.Engineer;
-import edu.coursework.enterprises.repository.EngineerRepository;
-import edu.coursework.enterprises.service.engineer.interfaces.IEngineerService;
+import edu.coursework.philharmonic.model.ConcertVenue;
+import edu.coursework.philharmonic.repository.ConcertVenueRepository;
+import edu.coursework.philharmonic.service.concertVenue.interfaces.IConcertVenueService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,37 +18,37 @@ import java.util.Date;
 import java.util.List;
 
 @Service
-public class ConcertVenueServiceImpl implements IEngineerService {
+public class ConcertVenueServiceImpl implements IConcertVenueService {
 
     @Autowired
-    EngineerRepository repository;
+    ConcertVenueRepository repository;
 
     @Override
-    public Engineer getById(String id) {
+    public ConcertVenue getById(String id) {
 
         return repository.findById(id).orElse(null);
     }
 
     @Override
-    public Engineer create(Engineer engineer) {
-        engineer.setCreated_at(new Date());
-        return repository.save(engineer);
+    public ConcertVenue create(ConcertVenue concertVenue) {
+        concertVenue.setCreatedAt(new Date());
+        return repository.save(concertVenue);
     }
 
     @Override
-    public Engineer update(Engineer engineer) {
-        engineer.setModified_at(new Date());
-        return repository.save(engineer);
+    public ConcertVenue update(ConcertVenue concertVenue) {
+        concertVenue.setModifiedAt(new Date());
+        return repository.save(concertVenue);
     }
 
     @Override
-    public Engineer delete(String id) {
+    public ConcertVenue delete(String id) {
         repository.deleteById(id);
         return null;
     }
 
     @Override
-    public List<Engineer> getAll() {
+    public List<ConcertVenue> getAll() {
 
         return repository.findAll();
     }

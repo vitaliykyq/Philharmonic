@@ -8,7 +8,7 @@ package edu.coursework.philharmonic.repository;
     @since:    21.05.2021     
 */
 
-import edu.coursework.enterprises.model.Accounting;
+import edu.coursework.philharmonic.model.Accounting;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface AccountingRepository extends MongoRepository<Accounting, String> {

@@ -3,14 +3,14 @@ package edu.coursework.philharmonic.service.competition.impls;
 /*
     @author:    Bogdan
     @project:    Enterprises 
-    @class:    CivilServiceImpl 
+    @class:    CompetitionServiceImpl
     @version:    1.0.0 
     @since:    15.04.2021     
 */
 
-import edu.coursework.enterprises.model.Missile;
-import edu.coursework.enterprises.repository.MissileRepository;
-import edu.coursework.enterprises.service.missile.interfaces.IMissileService;
+import edu.coursework.philharmonic.model.Competition;
+import edu.coursework.philharmonic.repository.CompetitionRepository;
+import edu.coursework.philharmonic.service.competition.interfaces.ICompetitionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,37 +18,37 @@ import java.util.Date;
 import java.util.List;
 
 @Service
-public class CompetitionServiceImpl implements IMissileService {
+public class CompetitionServiceImpl implements ICompetitionService {
 
     @Autowired
-    MissileRepository repository;
+    CompetitionRepository repository;
 
     @Override
-    public Missile getById(String id) {
+    public Competition getById(String id) {
 
         return repository.findById(id).orElse(null);
     }
 
     @Override
-    public Missile create(Missile missile) {
-        missile.setCreated_at(new Date());
-        return repository.save(missile);
+    public Competition create(Competition competition) {
+        competition.setCreatedAt(new Date());
+        return repository.save(competition);
     }
 
     @Override
-    public Missile update(Missile missile) {
-        missile.setModified_at(new Date());
-        return repository.save(missile);
+    public Competition update(Competition competition) {
+        competition.setModifiedAt(new Date());
+        return repository.save(competition);
     }
 
     @Override
-    public Missile delete(String id) {
+    public Competition delete(String id) {
         repository.deleteById(id);
         return null;
     }
 
     @Override
-    public List<Missile> getAll() {
+    public List<Competition> getAll() {
 
         return repository.findAll();
     }

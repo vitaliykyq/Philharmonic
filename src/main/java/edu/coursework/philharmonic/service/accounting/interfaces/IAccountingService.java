@@ -8,7 +8,7 @@ package edu.coursework.philharmonic.service.accounting.interfaces;
     @since:    15.04.2021     
 */
 
-import edu.coursework.enterprises.model.Accounting;
+import edu.coursework.philharmonic.model.Accounting;
 
 import java.util.List;
 

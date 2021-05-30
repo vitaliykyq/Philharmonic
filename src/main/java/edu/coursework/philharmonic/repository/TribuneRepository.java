@@ -3,13 +3,13 @@ package edu.coursework.philharmonic.repository;
 /*
     @author:    Bogdan
     @project:    Enterprises 
-    @class:    ProduceRepository
+    @class:    TribuneRepository
     @version:    1.0.0 
     @since:    21.05.2021     
 */
 
-import edu.coursework.enterprises.model.Produce;
+import edu.coursework.philharmonic.model.Tribune;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-public interface ProduceRepository extends MongoRepository<Produce, String> {
+public interface TribuneRepository extends MongoRepository<Tribune, String> {
 }

@@ -3,14 +3,14 @@ package edu.coursework.philharmonic.service.rewarding.impls;
 /*
     @author:    Bogdan
     @project:    Enterprises 
-    @class:    CivilServiceImpl 
+    @class:    RewardingServiceImpl
     @version:    1.0.0 
     @since:    15.04.2021     
 */
 
-import edu.coursework.enterprises.model.Military;
-import edu.coursework.enterprises.repository.MilitaryRepository;
-import edu.coursework.enterprises.service.military.interfaces.IMilitaryService;
+import edu.coursework.philharmonic.model.Rewarding;
+import edu.coursework.philharmonic.repository.RewardingRepository;
+import edu.coursework.philharmonic.service.rewarding.interfaces.IRewardingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,37 +18,37 @@ import java.util.Date;
 import java.util.List;
 
 @Service
-public class RewardingServiceImpl implements IMilitaryService {
+public class RewardingServiceImpl implements IRewardingService {
 
     @Autowired
-    MilitaryRepository repository;
+    RewardingRepository repository;
 
     @Override
-    public Military getById(String id) {
+    public Rewarding getById(String id) {
 
         return repository.findById(id).orElse(null);
     }
 
     @Override
-    public Military create(Military military) {
-        military.setCreated_at(new Date());
-        return repository.save(military);
+    public Rewarding create(Rewarding rewarding) {
+        rewarding.setCreatedAt(new Date());
+        return repository.save(rewarding);
     }
 
     @Override
-    public Military update(Military military) {
-        military.setModified_at(new Date());
-        return repository.save(military);
+    public Rewarding update(Rewarding rewarding) {
+        rewarding.setModifiedAt(new Date());
+        return repository.save(rewarding);
     }
 
     @Override
-    public Military delete(String id) {
+    public Rewarding delete(String id) {
         repository.deleteById(id);
         return null;
     }
 
     @Override
-    public List<Military> getAll() {
+    public List<Rewarding> getAll() {
 
         return repository.findAll();
     }

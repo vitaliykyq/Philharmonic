@@ -3,20 +3,20 @@ package edu.coursework.philharmonic.service.cinema.interfaces;
 /*
     @author:    Bogdan
     @project:    Enterprises 
-    @class:    ICivilService 
-    @version:    1.0.0 
+    @class:    ICinemaService
+    @version:    1.0.0
     @since:    15.04.2021     
 */
 
-import edu.coursework.enterprises.model.HangGlider;
+import edu.coursework.philharmonic.model.Cinema;
 
 import java.util.List;
 
 public interface ICinemaService {
 
-    HangGlider getById(String id);
-    HangGlider create(HangGlider hangGlider);
-    HangGlider update(HangGlider hangGlider);
-    HangGlider delete(String id);
-    List<HangGlider> getAll();
+    Cinema getById(String id);
+    Cinema create(Cinema cinema);
+    Cinema update(Cinema cinema);
+    Cinema delete(String id);
+    List<Cinema> getAll();
 }
