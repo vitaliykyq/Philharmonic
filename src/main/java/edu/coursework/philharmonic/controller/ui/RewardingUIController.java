@@ -35,7 +35,7 @@ public class RewardingUIController {
 
     @GetMapping("/showUpdateForm/{id}")
     public String showUpdateForm(@PathVariable (value="id") String id, Model model){
-        Military rewarding = service.getById(id);
+        Rewarding rewarding = service.getById(id);
         model.addAttribute("rewarding", rewarding);
         return "rewarding/updateRewarding";
     }

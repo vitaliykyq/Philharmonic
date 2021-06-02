@@ -38,7 +38,11 @@ public class ArtistServiceImpl implements IArtistService {
     @Override
     public Artist update(Artist artist) {
         artist.setModifiedAt(new Date());
-        return repository.save(artist);
+        artist.setCreatedAt(repository.findById(artist.getId())
+                .orElse(null)
+                .getCreatedAt());
+        repository.save(artist);
+        return artist;
     }
 
     @Override

@@ -36,7 +36,7 @@ public class ImpresarioUIController {
     @GetMapping("/showUpdateForm/{id}")
     public String showUpdateForm(@PathVariable (value="id") String id, Model model){
         Impresario impresario = service.getById(id);
-        model.addAttribute("impresario",impresario);
+        model.addAttribute("impresario", impresario);
         return "impresario/updateImpresario";
     }
 

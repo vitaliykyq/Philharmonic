@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Impresario</title>
+    <link  th:href="@{/css/style.css}" rel="stylesheet">
+    <link href="../style.css" rel="stylesheet">
+</head>
+<body style="text-align: center" onclick="checkedTable()">
+<div>
+    <div>
+        <form action="#" th:action="@{/ui/impresario/add}" th:object="${impresario}"
+              method="POST">
+            <h1>Add Impresario</h1>
+
+            <table class="edit">
+                <tr>
+                    <td><label>FirstName</label></td>
+                    <td>
+                        <div class="input">
+                            <input th:field="*{firstName}" onclick="checkedInput()" required/>
+                            <div class="border-line"></div>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><label>SecondName</label></td>
+                    <td>
+                        <div class="input">
+                            <input th:field="*{secondName}" onclick="checkedInput()" required/>
+                            <div class="border-line"></div>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><label>Age</label></td>
+                    <td>
+                        <div class="input">
+                            <input th:field="*{age}" onclick="checkedInput()" required/>
+                            <div class="border-line"></div>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><label>Experience</label></td>
+                    <td>
+                        <div class="input">
+                            <input th:field="*{experience}" onclick="checkedInput()" required/>
+                            <div class="border-line"></div>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><label>Genre</label></td>
+                    <td>
+                        <div class="input">
+                            <select th:field="*{genre}" onclick="checkedInput()">
+                                <option value="Пародія">Пародія</option>
+                                <option value="Комедія">Комедія</option>
+                                <option value="Епічний театр">Епічний театр</option>
+                                <option value="Експериментальний театр">Експериментальний театр</option>
+                                <option value="Фентезі">Фентезі</option>
+                                <option value="Пантоміма">Пантоміма</option>
+                                <option value="Театр міміки та жестів">Театр міміки та жестів</option>
+                                <option value="Народний театр">Народний театр</option>
+                                <option value="Маріонетки">Маріонетки</option>
+                                <option value="Радіопостановка">Радіопостановка</option>
+                                <option value="Рок-опера">Рок-опера</option>
+                                <option value="Театр абсурду">Театр абсурду</option>
+                                <option value="Трагедія">Трагедія</option>
+                                <option value="Трагікомедія">Трагікомедія</option>
+                            </select>
+                            <div class="border-line"></div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <br>
+            <div class="control">
+                <div class="buttonBack">
+                    <a th:href = "@{/ui/impresario/get/all}" class="containerButton">Back</a>
+                </div>
+                <button type="submit">Add</button>
+            </div>
+        </form>
+
+        <br>
+    </div>
+</div>
+</body>
+<script>
+    let table = document.querySelector(".edit");
+    let check = false;
+
+    function checkedTable(){
+        table.setAttribute("class", "edit");
+        if(check){
+            table.setAttribute("class", "edit border");
+        }
+        check = false;
+    }
+
+    function  checkedInput(){
+        check = true;
+    }
+</script>
+
+</html>

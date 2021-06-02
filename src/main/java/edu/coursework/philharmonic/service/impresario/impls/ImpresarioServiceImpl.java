@@ -38,7 +38,11 @@ public class ImpresarioServiceImpl implements IImpresarioService {
     @Override
     public Impresario update(Impresario impresario) {
         impresario.setModifiedAt(new Date());
-        return repository.save(impresario);
+        impresario.setCreatedAt(repository.findById(impresario.getId())
+                .orElse(null)
+                .getCreatedAt());
+        repository.save(impresario);
+        return impresario;
     }
 
     @Override
