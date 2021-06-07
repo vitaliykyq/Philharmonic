@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Cinema</title>
+    <link  th:href="@{/css/style.css}" rel="stylesheet">
+</head>
+<body style="text-align: center">
+<div>
+    <div>
+        <form action="#" th:action="@{/ui/cinema/update}" th:object="${cinema}"
+              method="POST">
+            <h1>Update Cinema</h1>
+
+            <table class="edit">
+                <tr>
+                    <td><label>Id</label></td>
+                    <td>
+                        <div class="input">
+                            <input th:field="*{id}" readonly required/>
+                            <div class="border-line"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Name</label></td>
+                    <td>
+                        <div class="input">
+                            <input th:field="*{name}" required/>
+                            <div class="border-line"></div>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><label>Stage Area</label></td>
+                    <td>
+                        <div class="input">
+                            <input th:field="*{stageArea}" required/>
+                            <div class="border-line"></div>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><label>Hall Capacity</label></td>
+                    <td>
+                        <div class="input">
+                            <input th:field="*{hallCapacity}" required/>
+                            <div class="border-line"></div>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><label>Area</label></td>
+                    <td>
+                        <div class="input">
+                            <input th:field="*{area}" required/>
+                            <div class="border-line"></div>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><label>Screen Size</label></td>
+                    <td>
+                        <div class="input">
+                            <input th:field="*{screenSize}" required/>
+                            <div class="border-line"></div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <br>
+            <div class="control">
+                <div class="buttonBack">
+                    <a th:href = "@{/ui/cinema/get/all}" class="containerButton">Back</a>
+                </div>
+                <button type="submit">Update</button>
+            </div>
+        </form>
+
+        <br>
+    </div>
+</div>
+</body>
+<script>
+
+    let table = document.querySelector(".edit");
+    table.setAttribute("class", "edit border");
+
+</script>
+
+
+</html>

@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <title>Add Artist</title>
     <link th:href="@{/css/style.css}" rel="stylesheet">
-    <link href="../style.css" rel="stylesheet">
 </head>
-<body style="text-align: center" onclick="checkedTable()">
+<body style="text-align: center">
 <div>
     <div>
         <form action="#" th:action="@{/ui/artist/add}" th:object="${artist}"
@@ -18,7 +17,7 @@
                     <td><label>FirstName</label></td>
                     <td>
                         <div class="input">
-                            <input th:field="*{firstName}" onclick="checkedInput()" required/>
+                            <input th:field="*{firstName}" required/>
                             <div class="border-line"></div>
                         </div>
                     </td>
@@ -28,7 +27,7 @@
                     <td><label>SecondName</label></td>
                     <td>
                         <div class="input">
-                            <input th:field="*{secondName}" onclick="checkedInput()" required/>
+                            <input th:field="*{secondName}" required/>
                             <div class="border-line"></div>
                         </div>
                     </td>
@@ -38,7 +37,7 @@
                     <td><label>Age</label></td>
                     <td>
                         <div class="input">
-                            <input th:field="*{age}" onclick="checkedInput()" required/>
+                            <input th:field="*{age}" required/>
                             <div class="border-line"></div>
                         </div>
                     </td>
@@ -48,7 +47,7 @@
                     <td><label>Experience</label></td>
                     <td>
                         <div class="input">
-                            <input th:field="*{experience}" onclick="checkedInput()" required/>
+                            <input th:field="*{experience}" required/>
                             <div class="border-line"></div>
                         </div>
                     </td>
@@ -58,7 +57,7 @@
                     <td><label>Genre List</label></td>
                     <td>
                         <div class="input">
-                            <select multiple th:field="*{genreList}" onclick="checkedInput()">
+                            <select multiple th:field="*{genreList}">
                                 <option value="Пародія">Пародія</option>
                                 <option value="Комедія">Комедія</option>
                                 <option value="Епічний театр">Епічний театр</option>
@@ -82,7 +81,7 @@
                     <td><label>Impresario List</label></td>
                     <td>
                         <div class="input">
-                            <select multiple th:field="*{impresarioList}" onclick="checkedInput()">
+                            <select multiple th:field="*{impresarioList}">
                                 <option th:each="impresarioIdList: ${impresarioIdList}"
                                         th:value="${impresarioIdList.id}" th:text="${impresarioIdList.firstName
                                         + ' ' + impresarioIdList.secondName}">
@@ -96,7 +95,7 @@
                     <td><label>Number</label></td>
                     <td>
                         <div class="input">
-                            <input th:field="*{number}" onclick="checkedInput()" required/>
+                            <input th:field="*{number}" required/>
                             <div class="border-line"></div>
                         </div>
                     </td>
@@ -117,20 +116,10 @@
 </div>
 </body>
 <script>
+
     let table = document.querySelector(".edit");
-    let check = false;
+    table.setAttribute("class", "edit border");
 
-    function checkedTable(){
-        table.setAttribute("class", "edit");
-        if(check){
-            table.setAttribute("class", "edit border");
-        }
-        check = false;
-    }
-
-    function  checkedInput(){
-        check = true;
-    }
 </script>
 
 </html>

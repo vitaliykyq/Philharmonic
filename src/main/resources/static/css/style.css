@@ -32,7 +32,6 @@ button{
 }
 @media (min-width: 75em) {
     .container {
-        margin: 2em auto;
         max-width: 75em;
     }
 }
@@ -607,7 +606,7 @@ table.edit td{
 }
 
 table.border{
-    border:10px solid #9c0615 !important;
+    border:10px solid #434343 !important;
 }
 
 
