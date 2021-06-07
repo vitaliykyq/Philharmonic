@@ -38,7 +38,11 @@ public class RewardingServiceImpl implements IRewardingService {
     @Override
     public Rewarding update(Rewarding rewarding) {
         rewarding.setModifiedAt(new Date());
-        return repository.save(rewarding);
+        rewarding.setCreatedAt(repository.findById(rewarding.getId())
+                .orElse(null)
+                .getCreatedAt());
+        repository.save(rewarding);
+        return rewarding;
     }
 
     @Override

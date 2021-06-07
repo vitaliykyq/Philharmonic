@@ -8,7 +8,9 @@ package edu.coursework.philharmonic.controller.ui;
     @since:    26.04.2021     
 */
 
+import edu.coursework.philharmonic.model.Artist;
 import edu.coursework.philharmonic.model.Competition;
+import edu.coursework.philharmonic.model.Organizer;
 import edu.coursework.philharmonic.service.artist.impls.ArtistServiceImpl;
 import edu.coursework.philharmonic.service.competition.impls.CompetitionServiceImpl;
 import edu.coursework.philharmonic.service.organizer.impls.OrganizerServiceImpl;
@@ -45,6 +47,12 @@ public class CompetitionUIController {
     public String showUpdateForm(@PathVariable (value="id") String id, Model model){
         Competition competition = competitionService.getById(id);
         model.addAttribute("competition", competition);
+
+        List<Artist> artists= artistService.getAll();
+        model.addAttribute("artists", artists);
+
+        List<Organizer> organizer = organizerService.getAll();
+        model.addAttribute("organizer", organizer);
         return "competition/updateCompetition";
     }
 
@@ -52,6 +60,12 @@ public class CompetitionUIController {
     public String showNewForm(Model model) {
         Competition competition = new Competition();
         model.addAttribute("competition", competition);
+
+        List<Artist> artists= artistService.getAll();
+        model.addAttribute("artists", artists);
+
+        List<Organizer> organizer = organizerService.getAll();
+        model.addAttribute("organizer", organizer);
         return "competition/newCompetition";
     }
 

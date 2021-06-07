@@ -8,6 +8,7 @@ package edu.coursework.philharmonic.service.concertVenue.impls;
     @since:    15.04.2021     
 */
 
+import edu.coursework.philharmonic.model.Competition;
 import edu.coursework.philharmonic.model.ConcertVenue;
 import edu.coursework.philharmonic.repository.ConcertVenueRepository;
 import edu.coursework.philharmonic.service.concertVenue.interfaces.IConcertVenueService;
@@ -36,9 +37,13 @@ public class ConcertVenueServiceImpl implements IConcertVenueService {
     }
 
     @Override
-    public ConcertVenue update(ConcertVenue concertVenue) {
+    public ConcertVenue update(ConcertVenue concertVenue) {String id = concertVenue.getId();
+        ConcertVenue courtDB = repository.findById(id).orElse(null);
+        Date createdAt = courtDB.getCreatedAt();
         concertVenue.setModifiedAt(new Date());
-        return repository.save(concertVenue);
+        concertVenue.setCreatedAt(createdAt);
+        repository.save(concertVenue);
+        return concertVenue;
     }
 
     @Override

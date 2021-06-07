@@ -36,9 +36,13 @@ public class CinemaServiceImpl implements ICinemaService {
     }
 
     @Override
-    public Cinema update(Cinema cinema) {
+    public Cinema update(Cinema cinema) {String id = cinema.getId();
+        Cinema courtDB = repository.findById(id).orElse(null);
+        Date createdAt = courtDB.getCreatedAt();
         cinema.setModifiedAt(new Date());
-        return repository.save(cinema);
+        cinema.setCreatedAt(createdAt);
+        repository.save(cinema);
+        return cinema;
     }
 
     @Override

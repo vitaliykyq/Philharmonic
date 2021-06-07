@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Cinema</title>
+    <link  th:href="@{/css/style.css}" rel="stylesheet">
+</head>
+<body style="text-align: center">
+<div>
+    <div>
+        <form action="#" th:action="@{/ui/competition/update}" th:object="${competitionList}"
+              method="POST">
+            <h1>Update Cinema</h1>
+
+            <table class="edit">
+                <tr>
+                    <td><label>Id</label></td>
+                    <td>
+                        <div class="input">
+                            <input th:field="*{id}" readonly required/>
+                            <div class="border-line"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Name</label></td>
+                    <td>
+                        <div class="input">
+                            <input th:field="*{name}" required/>
+                            <div class="border-line"></div>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><label>Genre</label></td>
+                    <td>
+                        <div class="input">
+                            <input th:field="*{genre}" required/>
+                            <div class="border-line"></div>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><label>Laureate</label></td>
+                    <td>
+                        <div class="input">
+                            <input th:field="*{laureate}" required/>
+                            <div class="border-line"></div>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><label>Winners</label></td>
+                    <td>
+                        <div class="input">
+                            <select multiple th:field="*{winnerList}">
+                                <option th:each="s : ${artists}" th:value="${s.id}" th:text="${s.firstName}" />
+                            </select>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><label>Organizer</label></td>
+                    <td>
+                        <div class="input">
+                            <select  th:field="*{organizer}">
+                                <option th:each="s : ${organizer}" th:value="${s.id}" th:text="${s.firstName}" />
+                            </select>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <br>
+            <div class="control">
+                <div class="buttonBack">
+                    <a th:href = "@{/ui/competition/get/all}" class="containerButton">Back</a>
+                </div>
+                <button type="submit">Update</button>
+            </div>
+        </form>
+
+        <br>
+    </div>
+</div>
+</body>
+<script>
+
+    let table = document.querySelector(".edit");
+    table.setAttribute("class", "edit border");
+
+</script>
+
+
+</html>

@@ -38,7 +38,11 @@ public class TribuneServiceImpl implements ITribuneService {
     @Override
     public Tribune update(Tribune tribune) {
         tribune.setModifiedAt(new Date());
-        return repository.save(tribune);
+        tribune.setCreatedAt(repository.findById(tribune.getId())
+                .orElse(null)
+                .getCreatedAt());
+        repository.save(tribune);
+        return tribune;
     }
 
     @Override

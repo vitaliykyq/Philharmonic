@@ -38,7 +38,11 @@ public class TheaterServiceImpl implements ITheaterService {
     @Override
     public Theater update(Theater theater) {
         theater.setModifiedAt(new Date());
-        return repository.save(theater);
+        theater.setCreatedAt(repository.findById(theater.getId())
+                .orElse(null)
+                .getCreatedAt());
+        repository.save(theater);
+        return theater;
     }
 
     @Override

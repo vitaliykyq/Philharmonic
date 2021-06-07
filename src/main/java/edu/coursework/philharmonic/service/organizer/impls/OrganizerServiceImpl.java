@@ -38,7 +38,11 @@ public class OrganizerServiceImpl implements IOrganizerService {
     @Override
     public Organizer update(Organizer organizer) {
         organizer.setModifiedAt(new Date());
-        return repository.save(organizer);
+        organizer.setCreatedAt(repository.findById(organizer.getId())
+                .orElse(null)
+                .getCreatedAt());
+        repository.save(organizer);
+        return organizer;
     }
 
     @Override

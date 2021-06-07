@@ -8,6 +8,7 @@ package edu.coursework.philharmonic.service.competition.impls;
     @since:    15.04.2021     
 */
 
+import edu.coursework.philharmonic.model.Cinema;
 import edu.coursework.philharmonic.model.Competition;
 import edu.coursework.philharmonic.repository.CompetitionRepository;
 import edu.coursework.philharmonic.service.competition.interfaces.ICompetitionService;
@@ -36,9 +37,13 @@ public class CompetitionServiceImpl implements ICompetitionService {
     }
 
     @Override
-    public Competition update(Competition competition) {
+    public Competition update(Competition competition) {String id = competition.getId();
+        Competition courtDB = repository.findById(id).orElse(null);
+        Date createdAt = courtDB.getCreatedAt();
         competition.setModifiedAt(new Date());
-        return repository.save(competition);
+        competition.setCreatedAt(createdAt);
+        repository.save(competition);
+        return competition;
     }
 
     @Override

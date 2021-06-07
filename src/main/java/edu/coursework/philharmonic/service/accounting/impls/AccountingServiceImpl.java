@@ -9,6 +9,7 @@ package edu.coursework.philharmonic.service.accounting.impls;
 */
 
 import edu.coursework.philharmonic.model.Accounting;
+import edu.coursework.philharmonic.model.Cinema;
 import edu.coursework.philharmonic.repository.AccountingRepository;
 import edu.coursework.philharmonic.service.accounting.interfaces.IAccountingService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,9 +37,13 @@ public class AccountingServiceImpl implements IAccountingService {
     }
 
     @Override
-    public Accounting update(Accounting accounting) {
+    public Accounting update(Accounting accounting) {String id = accounting.getId();
+        Accounting courtDB = repository.findById(id).orElse(null);
+        Date createdAt = courtDB.getCreatedAt();
         accounting.setModifiedAt(new Date());
-        return repository.save(accounting);
+        accounting.setCreatedAt(createdAt);
+        repository.save(accounting);
+        return accounting;
     }
 
     @Override
