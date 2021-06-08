@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Rooms</title>
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+</head>
+<body style="text-align: center">
+<div>
+    <div>
+        <form action="#" th:action="@{/ui/rooms/update}" th:object="${rooms}"
+              method="POST">
+            <h1>Update Rooms</h1>
+
+            <table class="edit">
+                <tr>
+                    <td><label>Id</label></td>
+                    <td>
+                        <div class="input">
+                            <input th:field="*{id}" required/>
+                            <div class="border-line"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>BlockName</label></td>
+                    <td>
+                        <div class="input">
+                            <input th:field="*{blockName}" required/>
+                            <div class="border-line"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Head</label></td>
+                    <td>
+                        <div class="input">
+                            <input th:field="*{head}" required/>
+                            <div class="border-line"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>PalaceOfCulture</label></td>
+                    <td>
+                        <div class="input">
+                            <select multiple th:field="*{palaceOfCulture}">
+                                <option th:each="palaceOfCultureListId: ${palaceOfCultureListId}"
+                                        th:value="${palaceOfCultureListId.id}" th:text="${palaceOfCultureListId.name}">
+                                </option>
+                            </select>
+                            <div class="border-line"></div>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><label>ConcertVenue</label></td>
+                    <td>
+                        <div class="input">
+                            <select multiple th:field="*{concertVenue}">
+                                <option th:each="concertVenueListId: ${concertVenueListId}"
+                                        th:value="${concertVenueListId.id}" th:text="${concertVenueListId.name}">
+                                </option>
+                            </select>
+                            <div class="border-line"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Theater</label></td>
+                    <td>
+                        <div class="input">
+                            <select multiple th:field="*{theater}">
+                                <option th:each="theaterListId: ${theaterListId}"
+                                        th:value="${theaterListId.id}" th:text="${theaterListId.name}">
+                                </option>
+                            </select>
+                            <div class="border-line"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Cinema</label></td>
+                    <td>
+                        <div class="input">
+                            <select multiple th:field="*{cinema}">
+                                <option th:each="cinemaListId: ${cinemaListId}"
+                                        th:value="${cinemaListId.id}" th:text="${cinemaListId.name}">
+                                </option>
+                            </select>
+                            <div class="border-line"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Tribune</label></td>
+                    <td>
+                        <div class="input">
+                            <select multiple th:field="*{tribune}">
+                                <option th:each="tribuneListId: ${tribuneListId}"
+                                        th:value="${tribuneListId.id}" th:text="${tribuneListId.name}">
+                                </option>
+                            </select>
+                            <div class="border-line"></div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <br>
+            <div class="control">
+                <div class="buttonBack">
+                    <a th:href = "@{/ui/rooms/get/all}" class="containerButton">Back</a>
+                </div>
+                <button type="submit">Add</button>
+            </div>
+        </form>
+
+        <br>
+    </div>
+</div>
+</body>
+<script>
+
+    let table = document.querySelector(".edit");
+    table.setAttribute("class", "edit border");
+
+</script>
+
+</html>

@@ -18,8 +18,8 @@
                 <td>
                     <div class="input">
                         <select multiple th:field="*{artistList}">
-                            <option th:each="elementIdList: ${artistList}"
-                                    th:value="${elementIdList.id}" th:text="${elementIdList.firstName}">
+                            <option th:each="artistListId: ${artistListId}"
+                                    th:value="${artistListId.id}" th:text="${artistListId.firstName}">
                             </option>
                         </select>
                         <div class="border-line"></div>

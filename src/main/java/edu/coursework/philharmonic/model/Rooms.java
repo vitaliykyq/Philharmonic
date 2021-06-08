@@ -18,7 +18,6 @@ public class Rooms {
 
     private String blockName;
     private String head;
-
     private PalaceOfCulture palaceOfCulture;
     private ConcertVenue concertVenue;
     private Theater theater;

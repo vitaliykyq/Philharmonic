@@ -9,9 +9,13 @@ package edu.coursework.philharmonic.controller.ui;
 */
 
 
-import edu.coursework.philharmonic.model.Accounting;
+import edu.coursework.philharmonic.model.*;
 import edu.coursework.philharmonic.service.accounting.impls.AccountingServiceImpl;
+import edu.coursework.philharmonic.service.artist.impls.ArtistServiceImpl;
+import edu.coursework.philharmonic.service.competition.impls.CompetitionServiceImpl;
+import edu.coursework.philharmonic.service.impresario.impls.ImpresarioServiceImpl;
 import edu.coursework.philharmonic.service.organizer.impls.OrganizerServiceImpl;
+import edu.coursework.philharmonic.service.rooms.impls.RoomsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,6 +33,18 @@ public class AccountingUIController {
     @Autowired
     OrganizerServiceImpl organizerService;
 
+    @Autowired
+    ArtistServiceImpl artistService;
+
+    @Autowired
+    ImpresarioServiceImpl impresarioService;
+
+    @Autowired
+    CompetitionServiceImpl competitionService;
+
+    @Autowired
+    RoomsServiceImpl roomsService;
+
     @RequestMapping("/get/all")
     public String showAll(Model model){
 
@@ -42,6 +58,21 @@ public class AccountingUIController {
     public String showUpdateForm(@PathVariable (value="id") String id, Model model){
         Accounting accounting = accountingService.getById(id);
         model.addAttribute("accounting", accounting);
+
+        List<Organizer> organizerListId = organizerService.getAll();
+        model.addAttribute("organizerListId", organizerListId);
+
+        List<Artist> artistListId = artistService.getAll();
+        model.addAttribute("artistListId", artistListId);
+
+        List<Impresario> impresarioListId = impresarioService.getAll();
+        model.addAttribute("impresarioListId", impresarioListId);
+
+        List<Competition> competitionListId = competitionService.getAll();
+        model.addAttribute("competitionListId", competitionListId);
+
+        List<Rooms> roomsListId = roomsService.getAll();
+        model.addAttribute("roomsListId", roomsListId);
         return "accounting/updateAccounting";
     }
 
@@ -49,6 +80,21 @@ public class AccountingUIController {
     public String showNewForm(Model model) {
         Accounting accounting = new Accounting();
         model.addAttribute("accounting", accounting);
+
+        List<Organizer> organizerListId = organizerService.getAll();
+        model.addAttribute("organizerListId", organizerListId);
+
+        List<Artist> artistListId = artistService.getAll();
+        model.addAttribute("artistListId", artistListId);
+
+        List<Impresario> impresarioListId = impresarioService.getAll();
+        model.addAttribute("impresarioListId", impresarioListId);
+
+        List<Competition> competitionListId = competitionService.getAll();
+        model.addAttribute("competitionListId", competitionListId);
+
+        List<Rooms> roomsListId = roomsService.getAll();
+        model.addAttribute("roomsListId", roomsListId);
         return "accounting/newAccounting";
     }
 

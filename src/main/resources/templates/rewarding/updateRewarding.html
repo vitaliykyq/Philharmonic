@@ -2,15 +2,15 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Update Competition</title>
+    <title>Update Rewarding</title>
     <link th:href="@{/css/style.css}" rel="stylesheet">
 </head>
 <body style="text-align: center">
 <div>
     <div>
-        <form action="#" th:action="@{/ui/competition/update}" th:object="${competition}"
+        <form action="#" th:action="@{/ui/rewarding/update}" th:object="${rewarding}"
               method="POST">
-            <h1>Update Competition</h1>
+            <h1>Update Rewarding</h1>
 
             <table class="edit">
                 <tr>
@@ -22,14 +22,16 @@
                         </div>
                     </td>
                 </tr>
-                <tr>
-                    <td><label>Name</label></td>
-                    <td>
-                        <div class="input">
-                            <input th:field="*{name}" required/>
-                            <div class="border-line"></div>
-                        </div>
-                    </td>
+                <td>
+                    <div class="input">
+                        <select multiple th:field="*{artistList}">
+                            <option th:each="artistListId: ${artistListId}"
+                                    th:value="${artistListId.id}" th:text="${artistListId.firstName}">
+                            </option>
+                        </select>
+                        <div class="border-line"></div>
+                    </div>
+                </td>
                 </tr>
 
                 <tr>
@@ -43,34 +45,20 @@
                 </tr>
 
                 <tr>
-                    <td><label>Laureate</label></td>
+                    <td><label>Rating</label></td>
                     <td>
                         <div class="input">
-                            <input th:field="*{laureate}" required/>
+                            <input th:field="*{rating}" type="number" required/>
                             <div class="border-line"></div>
                         </div>
                     </td>
                 </tr>
 
                 <tr>
-                    <td><label>Artist List</label></td>
+                    <td><label>Prize</label></td>
                     <td>
                         <div class="input">
-                            <select multiple th:field="*{winnerList}">
-                                <option th:each="elementIdList: ${artists}"
-                                        th:value="${elementIdList.id}" th:text="${elementIdList.firstName}">
-                                </option>
-                            </select>
-                            <div class="border-line"></div>
-                        </div>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td><label>Organizer</label></td>
-                    <td>
-                        <div class="input">
-                            <input th:field="*{organizer}" required/>
+                            <input th:field="*{prize}" required/>
                             <div class="border-line"></div>
                         </div>
                     </td>
@@ -80,7 +68,7 @@
             <br>
             <div class="control">
                 <div class="buttonBack">
-                    <a th:href = "@{/ui/competition/get/all}" class="containerButton">Back</a>
+                    <a th:href = "@{/ui/rewarding/get/all}" class="containerButton">Back</a>
                 </div>
                 <button type="submit">Add</button>
             </div>

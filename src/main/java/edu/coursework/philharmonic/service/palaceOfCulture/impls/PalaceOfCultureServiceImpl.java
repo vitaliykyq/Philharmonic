@@ -8,6 +8,7 @@ package edu.coursework.philharmonic.service.palaceOfCulture.impls;
     @since:    15.04.2021     
 */
 
+import edu.coursework.philharmonic.model.Organizer;
 import edu.coursework.philharmonic.model.PalaceOfCulture;
 import edu.coursework.philharmonic.repository.PalaceOfCultureRepository;
 import edu.coursework.philharmonic.service.palaceOfCulture.interfaces.IPalaceOfCultureService;
@@ -38,7 +39,11 @@ public class PalaceOfCultureServiceImpl implements IPalaceOfCultureService {
     @Override
     public PalaceOfCulture update(PalaceOfCulture palaceOfCulture) {
         palaceOfCulture.setModifiedAt(new Date());
-        return repository.save(palaceOfCulture);
+        palaceOfCulture.setCreatedAt(repository.findById(palaceOfCulture.getId())
+                .orElse(null)
+                .getCreatedAt());
+        repository.save(palaceOfCulture);
+        return palaceOfCulture;
     }
 
     @Override

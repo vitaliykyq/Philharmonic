@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Rooms List</title>
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <table class="responsive-table">
+        <caption>List Rooms</caption>
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">BlockName</th>
+                <th scope="col">Head</th>
+                <th scope="col">PalaceOfCulture</th>
+                <th scope="col">ConcertVenue</th>
+                <th scope="col">Theater</th>
+                <th scope="col">Cinema</th>
+                <th scope="col">Tribune</th>
+                <th scope="col">CreatedAt</th>
+                <th scope="col">ModifiedAt</th>
+                <th scope="col" colspan="2">OPTIONS</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="rooms: ${roomsList}">
+                <td th:text="${rooms.id}"></td>
+                <td th:text="${rooms.blockName}"></td>
+                <td th:text="${rooms.head}"></td>
+                <td th:text="${rooms.palaceOfCulture.name}"></td>
+                <td th:text="${rooms.concertVenue.name}"></td>
+                <td th:text="${rooms.theater.name}"></td>
+                <td th:text="${rooms.cinema.name}"></td>
+                <td th:text="${rooms.tribune.name}"></td>
+                <td th:text="${rooms.createdAt}"></td>
+                <td th:text="${rooms.modifiedAt}"></td>
+                <td class="options">
+                    <a  th:href="@{/ui/rooms/delete/{id}(id=${rooms.id})}">
+                        <button class="first">Delete</button>
+                    </a>
+                    <a th:href="@{/ui/rooms/showUpdateForm/{id}(id=${rooms.id})}">
+                        <button class="last">Edit</button>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <br>
+
+    <div style="text-align: center">
+        <a th:href = "@{/ui/rooms/showNewForm}" class="containerButton">Add</a>
+    </div>
+</div>
+</body>
+<script>
+    $('button').on('click', function(){
+        $('body').toggleClass('open');
+    });
+
+</script>
+
+</html>
