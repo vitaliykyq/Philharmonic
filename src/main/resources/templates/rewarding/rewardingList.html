@@ -2,48 +2,46 @@
 <html lang="en"  xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Competition List</title>
+    <title>Rewarding List</title>
     <link th:href="@{/css/style.css}" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 </head>
 <body>
 <div class="container">
     <table class="responsive-table">
-        <caption>List Competition</caption>
+        <caption>List Rewarding</caption>
         <thead>
             <tr>
                 <th scope="col">Id</th>
-                <th scope="col">Name</th>
+                <th scope="col">Artist List</th>
                 <th scope="col">Genre</th>
-                <th scope="col">Laureate</th>
-                <th scope="col">Winner List</th>
-                <th scope="col">Organizer</th>
+                <th scope="col">Rating</th>
+                <th scope="col">Prize</th>
                 <th scope="col">CreatedAt</th>
                 <th scope="col">ModifiedAt</th>
                 <th scope="col" colspan="2">OPTIONS</th>
             </tr>
         </thead>
         <tbody>
-            <tr th:each="element: ${competitionList}">
+            <tr th:each="element: ${rewardingList}">
                 <td th:text="${element.id}"></td>
-                <td th:text="${element.name}"></td>
-                <td th:text="${element.genre}"></td>
-                <td th:text="${element.laureate}"></td>
                 <td>
                     <ol>
-                        <li th:each="elementListIds: ${element.winnerList}">
+                        <li th:each="elementListIds: ${element.artistList}">
                             <span th:text="${elementListIds.firstName}"></span>
                         </li>
                     </ol>
                 </td>
-                <td th:text="${element.organizer}"></td>
+                <td th:text="${element.genre}"></td>
+                <td th:text="${element.rating}"></td>
+                <td th:text="${element.prize}"></td>
                 <td th:text="${element.createdAt}"></td>
                 <td th:text="${element.modifiedAt}"></td>
                 <td class="options">
-                    <a  th:href="@{/ui/competition/delete/{id}(id=${element.id})}">
+                    <a  th:href="@{/ui/rewarding/delete/{id}(id=${element.id})}">
                         <button class="first">Delete</button>
                     </a>
-                    <a th:href="@{/ui/competition/showUpdateForm/{id}(id=${element.id})}">
+                    <a th:href="@{/ui/rewarding/showUpdateForm/{id}(id=${element.id})}">
                         <button class="last">Edit</button>
                     </a>
                 </td>
@@ -54,7 +52,7 @@
     <br>
 
     <div style="text-align: center">
-        <a th:href = "@{/ui/competition/showNewForm}" class="containerButton">Add</a>
+        <a th:href = "@{/ui/rewarding/showNewForm}" class="containerButton">Add</a>
     </div>
 </div>
 </body>

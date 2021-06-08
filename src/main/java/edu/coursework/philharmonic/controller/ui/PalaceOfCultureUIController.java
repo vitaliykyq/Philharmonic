@@ -37,14 +37,14 @@ public class PalaceOfCultureUIController {
     public String showUpdateForm(@PathVariable (value="id") String id, Model model){
         PalaceOfCulture palaceOfCulture = service.getById(id);
         model.addAttribute("palaceOfCulture", palaceOfCulture);
-        return "palaceOfCulture/updateEquipment";
+        return "palaceOfCulture/updatePalaceOfCulture";
     }
 
     @GetMapping("/showNewForm")
     public String showNewForm(Model model) {
         PalaceOfCulture palaceOfCulture = new PalaceOfCulture();
         model.addAttribute("palaceOfCulture", palaceOfCulture);
-        return "palaceOfCulture/newEquipment";
+        return "palaceOfCulture/newPalaceOfCulture";
     }
 
     @PostMapping("/add")

@@ -33,6 +33,7 @@ public class Accounting {
     private List<Competition> competitionList;
     private int numberOfPeople;
     private String eventDate;
+    private Rooms rooms;
 
     private Date createdAt;
     private Date modifiedAt;

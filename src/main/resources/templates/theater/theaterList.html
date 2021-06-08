@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Theater List</title>
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <table class="responsive-table">
+        <caption>List Theater</caption>
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Stage Area</th>
+                <th scope="col">Hall Capacity</th>
+                <th scope="col">Area</th>
+                <th scope="col">CreatedAt</th>
+                <th scope="col">ModifiedAt</th>
+                <th scope="col" colspan="2">OPTIONS</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="elem: ${theaterList}">
+                <td th:text="${elem.id}"></td>
+                <td th:text="${elem.name}"></td>
+                <td th:text="${elem.stageArea}"></td>
+                <td th:text="${elem.hallCapacity}"></td>
+                <td th:text="${elem.area}"></td>
+                <td th:text="${elem.createdAt}"></td>
+                <td th:text="${elem.modifiedAt}"></td>
+                <td class="options">
+                    <a  th:href="@{/ui/theater/delete/{id}(id=${elem.id})}">
+                        <button class="first">Delete</button>
+                    </a>
+                    <a th:href="@{/ui/theater/showUpdateForm/{id}(id=${elem.id})}">
+                        <button class="last">Edit</button>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <br>
+
+    <div style="text-align: center">
+        <a th:href = "@{/ui/theater/showNewForm}" class="containerButton">Add</a>
+    </div>
+</div>
+</body>
+<script>
+    $('button').on('click', function(){
+        $('body').toggleClass('open');
+    });
+
+</script>
+
+</html>
